@@ -1,0 +1,64 @@
+.card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0, 0, 0.1);
+    display: flex;
+}
+
+.profile-section{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    img{
+        width: 100px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-info{
+        h2{
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        p{
+            margin: 5px 0;
+            color: #666;
+        }
+    }
+}
+
+.friends-section{
+    h3{
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .friends-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .friend-card{
+        text-align: center;
+
+        img{
+            width: 80ox;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            object-fit: cover;
+        }
+
+        p{
+            margin: 0;
+            color: #333;
+        }
+    }
+}
