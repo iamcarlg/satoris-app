@@ -6,25 +6,17 @@
     </div>
 
     <div class="profile-info">
-        <h2>Rugero Carl Gauss</h2>
-        <p>rugerocarlgauss@gmail.com</p>
-        <p>Paris, France</p>
+        <h2>{{profile.firstName}}</h2>
+        <p>{{profile.lastName}}</p>
+        <p>{{profile.location}}</p>
     </div>
 
     <div class="friends-section">
         <h3>Amis</h3>
         <div class="friends-list">
-            <div class="friend-card">
-                <img src="" alt="" />
-                <p>Ami 1</p>
-            </div>
-            <div class="friend-card">
-                <img src="" alt="" />
-                <p>Ami 2</p>
-            </div>
-            <div class="friend-card">
-                <img src="" alt="" />
-                <p>Ami 3</p>
+            <div *ngFor="let friend of friends" class="friend-card">
+                <img [src]="friend.picture" [alt]="friend.firstName" />
+                <p>{{friend.firstName}} {{friend.lastName}}</p>
             </div>
         </div>
     </div>
