@@ -1,7 +1,14 @@
+// This file contains the definition of the Profile interface
 export interface Profile{
-    firstName: string;
-    lastName: String;
+    name : {
+        first: string,
+        last: string
+    },
     email: String;
-    location: string;
-    picture: String;
+    location: {
+        city: string,
+    }
+    picture: {
+        medium : string,
+    };
 }

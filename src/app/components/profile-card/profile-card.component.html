@@ -1,22 +1,23 @@
 <div class="card">
     <div class="profile-section">
         <div class="profile-image">
-            <img src="" alt="profile"/>
+            <img [src]="profile?.picture?.medium" alt="profile"/>
         </div>
     </div>
 
     <div class="profile-info">
-        <h2>{{profile.firstName}}</h2>
-        <p>{{profile.lastName}}</p>
-        <p>{{profile.location}}</p>
+        <h2>{{profile?.name?.first}}</h2>
+        <p>{{profile?.name?.last}}</p>
+        <p>{{profile?.email}}</p>
+        <p>{{profile?.location?.city}}</p>
     </div>
 
     <div class="friends-section">
         <h3>Amis</h3>
         <div class="friends-list">
             <div *ngFor="let friend of friends" class="friend-card">
-                <img [src]="friend.picture" [alt]="friend.firstName" />
-                <p>{{friend.firstName}} {{friend.lastName}}</p>
+                <img [src]="friend.picture.medium" [alt]="friend.name.first" />
+                <p>{{friend.name.first}} {{friend.name.last}}</p>
             </div>
         </div>
     </div>

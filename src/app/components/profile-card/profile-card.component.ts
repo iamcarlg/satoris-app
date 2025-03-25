@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Profile } from '../../interfaces/profile';
-import { last } from 'rxjs';
+import { ProfileService } from '../../services/profile.service';
 
 // This component displays the profile card of a user and their friends
 @Component({
   selector: 'app-profile-card',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './profile-card.component.html',
   styleUrl: './profile-card.component.scss'
@@ -13,29 +14,28 @@ import { last } from 'rxjs';
 
 export class ProfileCardComponent {
   // The profile of the user
-  profile: Profile = {
-    firstName: 'Carl Gauss',
-    lastName: 'Rugero',
-    email: 'rugerocarlgauss@gmail.com',
-    location: 'Thionville, France',
-    picture:''
-  };
+  profile: Profile | null = null;
 
   // The friends of the user
-  friends: Profile[] = [
-    {
-      firstName: 'Marc',
-      lastName: 'Zuckerberg',
-      email: 'marc.Zuckerberg@gmail.com',
-      location: 'Palo Alto, USA',
-      picture: ''
-    },
-    {
-      firstName: 'Elon',
-      lastName: 'Musk',
-      location: 'Los Angeles, USA',
-      email: 'elon.musk@gmail.com',
-      picture: ''
-    }
-  ];
+  friends: Profile[] = [];
+
+  // The constructor is called when the component is created
+  constructor(private profileService: ProfileService){
+    this.loadData();
+  }
+
+  // Method to load all the data
+  loadData(){
+    // Loading the user profile info from the RandomUser API
+      this.profileService.getRandomUser().subscribe((data: any) => {
+        this.profile = data.results[0];
+        console.log(this.profile);
+      })
+
+      // Loading the friends profiles info from the RandomUser API
+      this.profileService.getFriendsProfileUser().subscribe((data: any) => {
+        this.friends = data.results;
+        console.log(this.profile);
+      })
+  }
 }
