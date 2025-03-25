@@ -2,17 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Profile } from '../../interfaces/profile';
 import { ProfileService } from '../../services/profile.service';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 // This component displays the profile card of a user and their friends
 @Component({
   selector: 'app-profile-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GoogleMapsModule],
   templateUrl: './profile-card.component.html',
   styleUrl: './profile-card.component.scss'
 })
 
 export class ProfileCardComponent {
+  // The Google Maps Options
+  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
+  zoom = 4;
+
   // The profile of the user
   profile: Profile | null = null;
 
@@ -38,4 +43,12 @@ export class ProfileCardComponent {
         console.log(this.profile);
       })
   }
+
+  isVisible = false;
+
+  // The method to show or hide the details of the profile cards
+  showMore() {
+    this.isVisible = !this.isVisible;
+  }
+  
 }

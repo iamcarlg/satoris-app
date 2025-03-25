@@ -3,13 +3,22 @@
         <div class="profile-image">
             <img [src]="profile?.picture?.medium" alt="profile"/>
         </div>
+        <div class="profile-info">
+            <h2>{{profile?.name?.first}}</h2>
+            <p>{{profile?.name?.last}}</p>
+
+            <button (click)="showMore()">Voir plus</button>
+
+            <div class="profile-details" [class.visible]="isVisible">                
+                <p>{{profile?.email}}</p>
+                <p>{{profile?.location?.city}}</p>
+            </div>
+        </div>
     </div>
 
-    <div class="profile-info">
-        <h2>{{profile?.name?.first}}</h2>
-        <p>{{profile?.name?.last}}</p>
-        <p>{{profile?.email}}</p>
-        <p>{{profile?.location?.city}}</p>
+    <div class="profile-location">
+        <h3>Localisation</h3>
+        <google-map [center]="center" [zoom]="zoom" [width]="500" [height]="200"></google-map>
     </div>
 
     <div class="friends-section">
