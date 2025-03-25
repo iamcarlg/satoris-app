@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule ,Validators } from '@angula
 })
 export class ContactFormComponent {
   contactForm: FormGroup;
-  msgSsent = false;
+  msgSent = false;
 
   // The contructor is called when the component is created
   constructor (private fb: FormBuilder) {
@@ -26,6 +26,6 @@ export class ContactFormComponent {
 
   onSubmit() {
     console.log('Form successfully submitted!');
-    this.msgSsent = true;
+    this.msgSent = true;
   }
 }
