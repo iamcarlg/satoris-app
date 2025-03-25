@@ -4,8 +4,7 @@
             <div class="profile-image">
                 <img [src]="profile?.picture?.medium" [alt]="profile?.picture?.medium"/>
             </div>
-            <h2>{{profile?.name?.first}}</h2>
-            <p>{{profile?.name?.last}}</p>
+            <h2>{{profile?.name?.first}} {{profile?.name?.last}}</h2>
 
             <button (click)="showMore()">Voir plus</button>
 

@@ -3,6 +3,9 @@
     <div *ngIf="msgSent" class="success-message">
         <p>Message is successfully sent !</p>
     </div>
+    <div *ngIf="submitted && !this.contactForm.valid" class="error-message">
+        <p>Please fill all the fileds !</p>
+    </div>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="firstName">First Name :</label>

@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule ,Validators } from '@angula
 export class ContactFormComponent {
   contactForm: FormGroup;
   msgSent = false;
+  submitted = false;
 
   // The contructor is called when the component is created
   constructor (private fb: FormBuilder) {
@@ -20,12 +21,17 @@ export class ContactFormComponent {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       address: [''],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
     })
   };  
 
   onSubmit() {
-    console.log('Form successfully submitted!');
-    this.msgSent = true;
+    this.submitted = true;
+    // Check if the all the fields are valid
+    if(this.contactForm.valid){
+      console.log('Form successfully submitted!');
+      this.msgSent = true;
+      this.submitted = false;
+    }
   }
 }
