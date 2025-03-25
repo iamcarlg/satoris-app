@@ -50,5 +50,10 @@ export class ProfileCardComponent {
   showMore() {
     this.isVisible = !this.isVisible;
   }
+
+  // The method to refresh the page and load new data
+  refreshPage(){
+    window.location.reload();
+  }
   
 }

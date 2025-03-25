@@ -9,6 +9,16 @@
     display: flex;
 }
 
+.refresh-page-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    padding: 12px;
+}
 .profile-section{
     display: flex;
     gap: 20px;
