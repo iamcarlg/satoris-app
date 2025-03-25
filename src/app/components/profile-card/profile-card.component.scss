@@ -1,5 +1,6 @@
 .card {
     max-width: 600px;
+    height: 80vh;
     margin: 20px auto;
     padding: 20px;
     background-color: white;
@@ -51,9 +52,21 @@
 .profile-location{
     display: flex;
     flex-direction: column;
+    justify-content: right;
     width: 200px;
     height: 120px;
     margin: 0 0 0 20px;
+
+    &.map{
+        margin: 20px 0;
+        border-radius: 6px;
+        overflow: hidden;
+
+        iframe{
+            border:none;
+        }
+    }
+    
 }
 
 .friends-section{
@@ -68,8 +81,8 @@
     }
 
     .friends-list{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
         gap: 10px;
     }
 
