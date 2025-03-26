@@ -17,6 +17,7 @@ export class ProfileCardComponent {
   // The Google Maps Options
   center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
   zoom = 4;
+  countView = 0 // The number of times the page has been refreshed
 
   // The profile of the user
   profile: Profile | null = null;
@@ -32,9 +33,10 @@ export class ProfileCardComponent {
   // Method to load all the data
   loadData(){
     // Loading the user profile info from the RandomUser API
-      this.profileService.getRandomUser().subscribe((data: any) => {
-        this.profile = data.results[0];
-        console.log(this.profile);
+    this.profileService.getRandomUser().subscribe((data: any) => {
+      this.profile = data.results[0];
+      console.log(this.profile);
+      this.countView++; // Increment the number of times the page loads data
       })
 
       // Loading the friends profiles info from the RandomUser API
@@ -53,7 +55,7 @@ export class ProfileCardComponent {
 
   // The method to refresh the page and load new data
   refreshPage(){
-    window.location.reload();
+    this.loadData();
   }
   
 }

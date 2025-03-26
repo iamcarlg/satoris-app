@@ -19,6 +19,6 @@ export class ProfileService {
 
   // Fetch Friends profiles using the RandomUser API
   getFriendsProfileUser(){
-    return this.http.get(this.apiUrl + '?results=3');
+    return this.http.get(this.apiUrl + '?results=4');
   }
 }

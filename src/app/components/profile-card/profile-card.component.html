@@ -1,35 +1,40 @@
-<button class="refresh-page-btn" (click)="refreshPage()">Nouveau profil</button>
+<button class="refresh-page-btn" (click)="refreshPage()">New profile</button>
 <div class="card">
-    <div class="profile-section">
-        <div class="profile-info">
-            <div class="profile-image">
-                <img [src]="profile?.picture?.medium" [alt]="profile?.picture?.medium"/>
+    <div class="profile-container">
+        <div class="profile-section">
+            <div class="profile-info">
+                <div class="profile-image">
+                    <img [src]="profile?.picture?.medium" [alt]="profile?.picture?.medium"/>
+                </div>
+                <h2>{{profile?.name?.first}} {{profile?.name?.last}}</h2>
+    
+                <div class="view-counter">
+                    <p>{{ countView }} views</p>
+                </div>
+    
+                <button (click)="showMore()">Voir plus</button>
+    
+                <div class="profile-details" [class.visible]="isVisible">                
+                    <p>{{profile?.email}}</p>
+                    <p>{{profile?.location?.city}}</p>
+                </div>
             </div>
-            <h2>{{profile?.name?.first}} {{profile?.name?.last}}</h2>
-
-            <button (click)="showMore()">Voir plus</button>
-
-            <div class="profile-details" [class.visible]="isVisible">                
-                <p>{{profile?.email}}</p>
-                <p>{{profile?.location?.city}}</p>
-            </div>
-
-            <div class="profile-location">
-                <div class="map">
-                    <h3>Location</h3>
-                    <google-map [center]="center" [zoom]="zoom" [width]="400" [height]="200"></google-map>
+        </div>
+    
+        <div class="friends-section">
+            <h3>Friends</h3>
+            <div class="friends-list">
+                <div *ngFor="let friend of friends" class="friend-card">
+                    <img [src]="friend.picture.medium" [alt]="friend.name.first" />
+                    <p>{{friend.name.first}} {{friend.name.last}}</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="friends-section">
-        <h3>Friends</h3>
-        <div class="friends-list">
-            <div *ngFor="let friend of friends" class="friend-card">
-                <img [src]="friend.picture.medium" [alt]="friend.name.first" />
-                <p>{{friend.name.first}} {{friend.name.last}}</p>
-            </div>
+    <div class="location-section">
+        <div class="map">
+            <h3>Location</h3>
+            <google-map [center]="center" [zoom]="zoom" [width]="300" [height]="200"></google-map>
         </div>
     </div>
 </div>
