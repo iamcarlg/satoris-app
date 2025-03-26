@@ -57,10 +57,10 @@
                 }
                 .view-counter{
                     position: absolute;
-                    top: 20px;
-                    left: 20px;
+                    top: 0;
+                    left: 20;
                     animation: fadedIn 0.3s ease;
-                    color:rgba(0,0, 0, 0.1)
+                    color:rgba(0,0, 0);
                 }
             }
         }
