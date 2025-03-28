@@ -1,48 +1,116 @@
-.contact-form{
-    margin: 0 auto;
-    padding: 22px;
-    max-width: 500px;
+// Variables
+$primary: #2c3e50;
+$secondary: #34495e;
+$accent: #3498db;
+$text: #2c3e50;
+$text-light: #7f8c8d;
+$white: #ffffff;
+$shadow: rgba(0, 0, 0, 0.08);
+$success: #27ae60;
+$error: #e74c3c;
+
+.contact-form {
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 600px;
+    background: $white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px $shadow;
+
+    h2 {
+        color: $primary;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: $accent;
+            border-radius: 2px;
+        }
+    }
 }
 
-.form-group{
-    label{
+.form-group {
+    margin-bottom: 20px;
+
+    label {
         display: block;
-        margin-bottom: 3px;
-        font-weight: 300;
+        margin-bottom: 8px;
+        color: $primary;
+        font-weight: 500;
+        font-size: 0.95rem;
     }
 
     input, textarea{
         width: 100%;
-        padding: 7px;
-        border: 2px solid #ccd;
-        border-radius: 3px;
-    }
-    &:focus{
-        outline:none;
-    }
-}
+        padding: 12px;
+        border: 1px solid rgba($primary, 0.1);
+        border-radius: 6px;
+        font-size: 0.95rem;
+        color: $text;
+        background: $white;
+        transition: all 0.2s ease;
 
-div{
-    color: #333;
-    font-size:13px;
-    margin-top: 6px;
+        &:focus {
+            outline: none;
+            border-color: $accent;
+            box-shadow: 0 0 0 3px rgba($accent, 0.1);
+        }
+
+        &::placeholder {
+            color: $text-light;
+        }
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
 }
 
 button {
-    margin: 5px auto;
-    background: white;
-    color: #333;
+    width: 100%;
+    background: $accent;
+    color: $white;
     border: none;
-    padding: 10px 30px;
-    border-radius: 3px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+
+    &:hover {
+        background: darkcyan;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
 }
 
-.success-message{
-    color: green;
-    font-size: 18px;
-    padding:12px;
-    margin: 0 auto;
+.success-message {
+    background: rgba($success, 0.1);
+    color: $success;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid rgba($success, 0.2);
+    animation: slideIn 0.3s ease;
 }
 
 .error-message{
@@ -52,36 +120,69 @@ button {
     margin: 0 auto;
 }
 
-// media queries for responsiveness
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+// Responsive design
 @media (max-width: 768px) {
-    .form-container {
+    .contact-form {
         margin: 20px;
-        padding: 20px;
+        padding: 25px;
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+
+        label {
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
     }
 }
 
 @media (max-width: 480px) {
-    .form-container {
-        margin: 10px;
-        padding: 15px;
-    }
-    h2{
-        font-size: 20px;
-    }
-    .font-group{
-        margin-bottom: 13px;
-        
-        label{
-            font-size: 15px;
-        }
-        input, textarea{
-            padding: 12px;
-            font-size: 15px;
+    .contact-form {
+        margin: 15px;
+        padding: 20px;
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
         }
     }
-    button{
-        padding: 10px;
-        font-size: 15px;
+
+    .form-group {
+        margin-bottom: 12px;
+
+        label {
+            font-size: 0.85rem;
+        }
+
+        input, textarea {
+            padding: 8px;
+            font-size: 0.85rem;
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
