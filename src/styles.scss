@@ -1,6 +1,37 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f4;
-    font-family:'Times New Roman', Times, serifc;
+// Colors
+$primary: #2c3e50;
+$accent: #3498db;
+$text: #2c3e50;
+$background: #f8fafc;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $background;
+  font-family: Arial, sans-serif;
+  color: $text;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  color: $primary;
+  margin-bottom: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 }
